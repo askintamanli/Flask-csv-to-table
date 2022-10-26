@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    {% if name %}
+
+    <h3>FILE UPLOAD IS SUCCSES</h3>
+    <p>Your file's name is : {{name}}</p>
+
+    <div id="data-table">
+        <table border align="center">
+
+            <tr>
+                {% for column in df.columns%}
+                <td>{{column}}</td>
+            {% endfor %}
+            </tr>
+            
+            {% for i in range(df.index.size) %}
+            <tr>
+                {% for j in range(df.columns.size) %}
+                <td>
+                    {{df.iloc[i,j]}}
+                </td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+
+
+        </table>
+    </div>
+
+
+    {% else %}
+    <h3>PLEASE CHOOSE A FILE</h3>
+    {% endif %}
+
+
+    <style>
+        body {
+            background: rgb(196, 196, 151);
+        }
+
+        div#data-table {
+            width: auto;
+            height: 600px;
+            overflow-y: auto;
+            background: rgb(136, 136, 179);
+            margin-left: 10%;
+            margin-right: 10%;
+        }
+
+        h1 {
+            color: #c00;
+            font-family: sans-serif;
+            font-size: 2em;
+            margin-bottom: 0;
+        }
+
+        
+    </style>
+
+
+</body>
+
+</html>
